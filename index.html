@@ -34,7 +34,7 @@
 <body>
   <div id="mapid" style=" height: 100%; width: 100%;"></div>
 <script>
-
+  var geoJsonTestString = null;
 	var mymap;
 	var geojsonMarkerOptions = {
 	    radius: 8,
@@ -83,20 +83,22 @@
 	      'Map created with <a href="http://code-a.io/copoi">MapDit</a>',
 	    id: 'mapbox.streets'
 	  }).addTo(mymap);
-		loadPointsFromJson(geoJsonTestString);
+		$.ajax({
+				'async': false,
+				'global': false,
+				'url': "/poi_store.json",
+				'dataType': "json",
+				'success': function (data) {
+						geoJsonTestString = data;
+						loadPointsFromJson(geoJsonTestString);
+				}
+		});
+
 	  //L.Control.geocoder().addTo(mymap);
 });
 
-			var geoJsonTestString = null;
-			$.ajax({
-					'async': false,
-					'global': false,
-					'url': "/poi_store.json",
-					'dataType': "json",
-					'success': function (data) {
-							geoJsonTestString = data;
-					}
-			});
+
+
 
 	//var geoJsonTestString = '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"popupContent":"<b>Title:</b> test2</br><b>Description:</b> test2test</br>","Title":"test2","Description":"test2test"},"geometry":{"type":"Point","coordinates":[-0.05776405334472657,51.49288446351573]}},{"type":"Feature","properties":{"popupContent":"<b>Title:</b> test3</br><b>Description:</b> test3test</br>","Title":"test3","Description":"test3test"},"geometry":{"type":"Point","coordinates":[-0.057249069213867194,51.50260936069621]}}]}';
 
