@@ -90,6 +90,7 @@
 				'dataType': "json",
 				'success': function (data) {
 						geoJsonTestString = data;
+						console.log(data);
 						loadPointsFromJson(geoJsonTestString);
 				}
 		});
