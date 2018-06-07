@@ -84,7 +84,7 @@
 	    id: 'mapbox.streets'
 	  }).addTo(mymap);
 		$.ajax({
-				'async': false,
+				'async': true,
 				'global': false,
 				'url': "/poi_store.json",
 				'dataType': "json",
