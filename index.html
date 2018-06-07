@@ -47,7 +47,7 @@
 
 
   function loadPointsFromJson(geoJsonString) {
-		var jsonObject = JSON.parse(geoJsonString);
+		var jsonObject = geoJsonString;
 
 		for(var i=0; i<jsonObject.features.length; i++) {
 			var feature = jsonObject.features[i];
